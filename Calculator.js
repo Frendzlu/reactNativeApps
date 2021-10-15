@@ -126,10 +126,10 @@ class App extends Component {
         return (
             <View style={styles.containerMain}>
                 <View style={styles.equation}>
-                    <Text style={styles.equation}>{this.state.equation}</Text>
+                    <Text style={styles.equation.text}>{this.state.equation}</Text>
                 </View>
                 <View style={styles.result}>
-                    <Text style={styles.result}>{this.state.result}</Text>
+                    <Text style={styles.result.text}>{this.state.result}</Text>
                 </View>
                 <View>
                     <View>
@@ -149,13 +149,17 @@ const styles = StyleSheet.create({
         flex: 1
     },
     equation: {
-        flex: 2,
-        backgroundColor: '#ffffff',
+        view: {
+            flex: 2,
+            backgroundColor: '#ffffff',
+        },
         text: { fontSize: "2rem" }
     },
     result: {
-        flex: 1,
-        backgroundColor: "#e4e4e4",
+        view: {
+            flex: 1,
+            backgroundColor: "#e4e4e4",
+        },
         text: { fontSize: "1rem" }
     },
     buttons: {
@@ -170,15 +174,15 @@ const styles = StyleSheet.create({
     button: {
         special: {
             text: { color: "white", fontSize: "1rem" },
-            backgroundColor: "#3e3e3e"
+            view: { backgroundColor: "#3e3e3e" }
         },
         normal: {
             text: { color: "#3e3e3e", fontSize: "1rem" },
-            backgroundColor: "#47ffcc"
+            view: { backgroundColor: "#47ffcc" }
         },
         functions: {
             text: { color: "white", fontSize: "1rem" },
-            backgroundColor: "#636363"
+            view: { backgroundColor: "#636363" }
         }
     }
 });
