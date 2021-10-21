@@ -8,8 +8,8 @@ class Button extends Component {
 
     render() {
         return (
-            <TouchableOpacity style={this.props.style.view} onPress={this.props.callback(this.props.character)}>
-                <Text style={this.props.style.text}>{this.props.character}</Text>
+            <TouchableOpacity style={this.props.viewStyle} onPress={()=>this.props.callback(this.props.character)}>
+                <Text style={this.props.txtStyle}>{this.props.character}</Text>
             </TouchableOpacity>
         );
     }
