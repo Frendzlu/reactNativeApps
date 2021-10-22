@@ -116,27 +116,27 @@ class App extends Component {
         let buttons = []
         for (let i = 0; i < 3; i++) {
             let col = table[i].map((el, j) => {
-                return <Button key={j} viewStyle={btnStyles.normal} textStyle={textStyles.special} character={el} callback={el != "=" ? this.addToEquation : this.evaluateEquation} />
+                return <Button key={j} viewStyle={btnStyles.normal} textStyle={{ ...textStyles.special, ...textStyles.small }} character={el} callback={el != "=" ? this.addToEquation : this.evaluateEquation} />
             })
-            buttons.push(<View key={i} style={styles.buttonColumn}>{col}</View>)
+            buttons.push(<View key={i} style={{ ...styles.buttonColumn, ...styles.greenBg }}>{col}</View>)
         }
 
         let col
-        if (this.state.orientation) {
+        if (!this.state.orientation) {
             let btn0 = ["Sqrt", "Pow", "Sin", "Cos"].map((el, i) => {
-                return <Button key={i} viewStyle={btnStyles.functions} textStyle={textStyles.white} character={el} callback={this.alterResult} />
+                return <Button key={i} viewStyle={btnStyles.functions} textStyle={{ ...textStyles.white, ...textStyles.small }} character={el} callback={this.alterResult} />
             })
-            buttons.push(<View key={buttons.length} style={styles.buttonColumn}>{btn0}</View>)
+            buttons.push(<View key={buttons.length} style={{ ...styles.buttonColumn, ...styles.lightgreyBg }}>{btn0}</View>)
         }
         col = []
         let btn1 = ["DEL", "C"].map((el, i) => {
-            return <Button key={i} viewStyle={btnStyles.special} textStyle={textStyles.white} character={el} callback={i ? this.clear : this.deleteOne} />
+            return <Button key={i} viewStyle={btnStyles.special} textStyle={{ ...textStyles.white, ...textStyles.small }} character={el} callback={i ? this.clear : this.deleteOne} />
         })
         let btn2 = ["/", "*", "-", "+"].map((el, i) => {
-            return <Button key={i + 2} viewStyle={btnStyles.special} textStyle={textStyles.white} character={el} callback={this.addToEquation} />
+            return <Button key={i + 2} viewStyle={btnStyles.special} textStyle={{ ...textStyles.white, ...textStyles.small }} character={el} callback={this.addToEquation} />
         })
         col.push(...btn1, ...btn2)
-        buttons.push(<View key={buttons.length} style={styles.buttonColumn}>{col}</View>)
+        buttons.push(<View key={buttons.length} style={{ ...styles.buttonColumn, ...styles.greyBg }}>{col}</View>)
         return (
             <View style={styles.containerMain}>
                 <View style={styles.equation}>
@@ -201,6 +201,15 @@ const styles = StyleSheet.create({
     buttonColumn: {
         flex: 1,
         flexDirection: "column",
+    },
+    greenBg: {
+        backgroundColor: "#47ffcc"
+    },
+    greyBg: {
+        backgroundColor: "#3e3e3e"
+    },
+    lightgreyBg: {
+        backgroundColor: "#636363"
     }
 });
 
@@ -233,10 +242,10 @@ const textStyles = StyleSheet.create({
         color: "#3e3e3e"
     },
     small: {
-        fontSize: 16,
+        fontSize: 64,
     },
     big: {
-        fontSize: 24
+        fontSize: 104
     }
 })
 
