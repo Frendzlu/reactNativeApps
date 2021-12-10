@@ -242,10 +242,10 @@ const textStyles = StyleSheet.create({
         color: "#3e3e3e"
     },
     small: {
-        fontSize: 64,
+        fontSize: 48,
     },
     big: {
-        fontSize: 104
+        fontSize: 64
     }
 })
 
